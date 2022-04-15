@@ -9,7 +9,7 @@ const User = require('../models/userModel');
 const getPosts = asyncHandler(async (req, res) => {
   const posts = await Post.find({ user: req.user.id });
 
-  res.json(goals);
+  res.status(200).json(goals);
 });
 
 // @desc   Set post
