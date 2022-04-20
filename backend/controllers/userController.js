@@ -15,7 +15,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   // Check if user exists
-  const userExists = User.findOne({ email });
+  const userExists = await User.findOne({ email });
 
   if (userExists) {
     res.status(400);
@@ -66,8 +66,6 @@ const loginUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error('Invalid user data');
   }
-
-  res.json({ message: 'Login User' });
 });
 
 // @desc   Get user data

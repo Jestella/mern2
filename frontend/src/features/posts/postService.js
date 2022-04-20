@@ -15,7 +15,7 @@ const createPost = async (postData, token) => {
   return response.data;
 };
 
-// Get user goals
+// Get user posts
 const getPosts = async (token) => {
   const config = {
     headers: {
@@ -28,7 +28,7 @@ const getPosts = async (token) => {
   return response.data;
 };
 
-// Delete user Post
+// Delete user post
 const deletePost = async (postId, token) => {
   const config = {
     headers: {

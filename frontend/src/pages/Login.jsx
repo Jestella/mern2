@@ -3,7 +3,6 @@ import { FaSignInAlt } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FaUser } from 'react-icons/fa';
 import { login, reset } from '../features/auth/authSlice';
 import Spinner from '../components/Spinner';
 
@@ -62,7 +61,7 @@ function Login() {
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>A post a day.</p>
+        <p>Login to post</p>
       </section>
 
       <section className='form'>
@@ -76,7 +75,7 @@ function Login() {
               value={email}
               placeholder='Enter your email'
               onChange={onChange}
-            ></input>
+            />
           </div>
           <div className='form-group'>
             <input
@@ -87,7 +86,7 @@ function Login() {
               value={password}
               placeholder='Enter your password'
               onChange={onChange}
-            ></input>
+            />
           </div>
 
           <div className='form-group'>

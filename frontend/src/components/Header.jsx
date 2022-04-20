@@ -15,7 +15,7 @@ function Header() {
   };
 
   return (
-    <div className='header'>
+    <header className='header'>
       <div className='logo'>
         <Link to='/'>Post Daily</Link>
       </div>
@@ -28,7 +28,6 @@ function Header() {
           </li>
         ) : (
           <>
-            {' '}
             <li>
               <Link to='/login'>
                 <FaSignInAlt /> Login
@@ -42,7 +41,7 @@ function Header() {
           </>
         )}
       </ul>
-    </div>
+    </header>
   );
 }
 

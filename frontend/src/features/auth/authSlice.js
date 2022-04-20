@@ -23,6 +23,7 @@ export const register = createAsyncThunk(
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
+        error.message ||
         error.toString();
       return thunkAPI.rejectWithValue(message);
     }
@@ -36,6 +37,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
+      error.meesage ||
       error.toString();
     return thunkAPI.rejectWithValue(message);
   }

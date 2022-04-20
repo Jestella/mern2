@@ -21,6 +21,7 @@ export const createPost = createAsyncThunk(
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
+        error.message ||
         error.toString();
       return thunkAPI.rejectWithValue(message);
     }
@@ -39,6 +40,7 @@ export const getPosts = createAsyncThunk(
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
+        error.message ||
         error.toString();
       return thunkAPI.rejectWithValue(message);
     }
@@ -77,7 +79,7 @@ export const postSlice = createSlice({
       .addCase(createPost.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.goals.push(action.payload);
+        state.posts.push(action.payload);
       })
       .addCase(createPost.rejected, (state, action) => {
         state.isLoading = false;
@@ -90,7 +92,7 @@ export const postSlice = createSlice({
       .addCase(getPosts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.goals = action.payload;
+        state.posts = action.payload;
       })
       .addCase(getPosts.rejected, (state, action) => {
         state.isLoading = false;
@@ -103,7 +105,7 @@ export const postSlice = createSlice({
       .addCase(deletePost.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.goals = state.posts.filter(
+        state.posts = state.posts.filter(
           (post) => post._id !== action.payload.id
         );
       })
