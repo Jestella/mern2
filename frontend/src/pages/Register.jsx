@@ -115,7 +115,7 @@ function Register() {
               value={password2}
               placeholder='Confirm your password'
               onChange={onChange}
-            ></input>
+            />
           </div>
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>

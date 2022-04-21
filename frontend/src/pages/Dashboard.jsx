@@ -12,7 +12,7 @@ function Dashboard() {
 
   const { user } = useSelector((state) => state.auth);
   const { posts, isLoading, isError, message } = useSelector(
-    (state) => state.goals
+    (state) => state.posts
   );
 
   useEffect(() => {
