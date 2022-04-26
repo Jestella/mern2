@@ -1,7 +1,7 @@
 const asyncHandler = require('express-async-handler');
 
 const Post = require('../models/postModel');
-const User = require('../models/userModel');
+// const User = require('../models/userModel');
 
 // @desc   Get posts
 // @route  GET /api/posts
@@ -9,7 +9,7 @@ const User = require('../models/userModel');
 const getPosts = asyncHandler(async (req, res) => {
   const posts = await Post.find({ user: req.user.id });
 
-  res.status(200).json(goals);
+  res.status(200).json(posts);
 });
 
 // @desc   Set post
@@ -18,7 +18,7 @@ const getPosts = asyncHandler(async (req, res) => {
 const setPost = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
-    throw new Error('Please add a text field');
+    throw new Error('Please add text');
   }
 
   const post = await Post.create({
